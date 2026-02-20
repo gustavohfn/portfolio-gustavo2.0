@@ -1,0 +1,340 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #0f0f0f;
+  color: white;
+}
+
+/* HEADER */
+header {
+  background: #111;
+  padding: 20px 10%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 80px;
+  background: linear-gradient(to right, #111, #1a1a1a);
+}
+
+/* SEÇÕES */
+section {
+  padding: 80px 10%;
+}
+
+/* SOBRE COM IMAGEM */
+.sobre {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url("bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.sobre::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.sobre-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+/* ANIMAÇÃO SOBRE */
+
+.sobre img {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 1s ease;
+}
+
+.sobre img.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* SKILLS */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.skill {
+  background: #1a1a1a;
+  padding: 15px 25px;
+  border-radius: 8px;
+  border: 1px solid #ffffff;
+  transition: 0.3s;
+}
+
+.skill:hover {
+  background: #000000;
+  color: rgb(255, 255, 255);
+}
+
+/* PROJETOS */
+.projeto-card {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+/* ========================= */
+/* FOOTER PREMIUM */
+/* ========================= */
+
+footer {
+  background: #111;
+  padding: 50px 10%;
+  margin-top: 80px;
+  border-top: 1px solid #222;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-content p {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* BOTÃO DOS ÍCONES */
+
+.footer-btn {
+  width: 55px;
+  height: 55px;
+  border: 2px solid white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: white;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.3s ease;
+  z-index: -1;
+}
+
+.footer-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.footer-btn:hover {
+  color: black;
+  transform: translateY(-5px);
+}
+
+
+/* BOTÕES DE CONTATO */
+
+.contact-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-btn {
+    padding: 12px 28px;
+    border: 2px solid white;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background: white;
+    z-index: -1;
+    transition: 0.3s;
+}
+
+.contact-btn:hover {
+    color: black;
+}
+
+.contact-btn:hover::before {
+    width: 100%;
+}
+
+
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ========================= */
+/* RESPONSIVIDADE MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  /* HEADER */
+  header {
+    padding: 15px 5%;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 100px 20px 40px 20px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* SEÇÕES */
+  section {
+    padding: 60px 6%;
+  }
+
+  /* SOBRE */
+  .sobre {
+    min-height: auto;
+    padding: 80px 6%;
+  }
+
+  .sobre-content {
+    max-width: 100%;
+  }
+
+  /* SKILLS */
+  .skills-container {
+    justify-content: center;
+  }
+
+  .skill {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* PROJETOS */
+  .projeto-card {
+    padding: 20px;
+  }
+
+}
+
+/* ========================= */
+/* ANIMAÇÃO FADE SCROLL */
+/* ========================= */
+
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================= */
+/* ANIMAÇÃO ENTRADA LATERAL */
+/* ========================= */
+
+.slide-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  animation: slideLeft 1s ease forwards;
+}
+
+.slide-left.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.slide-left.delay-2 {
+  animation-delay: 0.6s;
+}
+
+.slide-left.delay-3 {
+  animation-delay: 0.9s;
+}
