@@ -1,35 +1,28 @@
-
 document.addEventListener("DOMContentLoaded", function () {
-  const text = "Sou desenvolvedor focado em HTML, CSS e JavaScript, criando soluções modernas, responsivas e com foco em experiência do usuário. Trabalho também com automação utilizando IA e criação de projetos através do Emergent."
+
+  const text = `Sou Desenvolvedor Front-End em constante evolução, focado na criação de interfaces responsivas e experiências intuitivas.\n
+Utilizo JavaScript e ferramentas de IA para desenvolver soluções que unem tecnologia, eficiência e impacto real.\n\n Atualmente desenvolvendo projetos autorais e aprimorando minhas habilidades em integração de APIs e automação de processos.`;
+
   const typingElement = document.getElementById("typing-text");
 
   let index = 0;
 
   function typeEffect() {
     if (index < text.length) {
-      typingElement.innerHTML += text.charAt(index);
+      typingElement.textContent += text.charAt(index);
       index++;
       setTimeout(typeEffect, 40);
     }
   }
 
-  typeEffect();
-
-const faders = document.querySelectorAll(".fade");
-
-const appearOnScroll = new IntersectionObserver(function(entries) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("active");
-    }
-  });
-}, { threshold: 0.3 });
-
-faders.forEach(fader => {
-  appearOnScroll.observe(fader);
-});
+  if (typingElement) {
+    typeEffect();
+  }
 
 });
+
+
+
 
 
 
